@@ -12,10 +12,10 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
 
-    @Column
-    private String personId;
+    @OneToOne
+    private Person person;
 
     @Column
     private String email;

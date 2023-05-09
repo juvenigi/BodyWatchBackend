@@ -1,30 +1,29 @@
 package com.example.BodyWatchBackend.model;
 
 import com.example.BodyWatchBackend.dto.ThresholdType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Entity
 @Service
 @Getter
 public class MeasurementWarning {
 
-    @ManyToOne
-    private User warningRepcipient;
+    @Id
+    private Integer id;
 
     @ManyToOne
-    private Person person;
+    private User warningRecipient;
 
-    @Column
-    private String measurementId;
+    @OneToOne
+    private PersonMeasurement measurement;
 
     @Column
     private ThresholdType threshold;
 
     @Column
-    private String durationInMillis;
+    private String description;
 }

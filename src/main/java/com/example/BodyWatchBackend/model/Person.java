@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -22,7 +24,6 @@ public class Person {
     @Column
     private String birthDate;
 
-    @ManyToOne
-    @JoinColumn(name = "PersonMeasurement_id")
-    private PersonMeasurement[] measurement;
+//    @OneToMany
+//    private List<PersonMeasurement> measurement;
 }
